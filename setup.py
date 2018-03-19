@@ -8,7 +8,7 @@ if not version:
     raise RuntimeError('Cannot find version information')
 
 setup(
-    name='pyjo_mdl',
+    name='pyjo-mdl',
     version=version,
     description='Model Definition Language for Pyjo',
     url='https://github.com/xelhark/pyjo-mdl',
