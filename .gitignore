@@ -1,2 +1,5 @@
 /.pytest_cache
 /.idea
+/pyjo_mdl.egg-info
+/dist
+/build
