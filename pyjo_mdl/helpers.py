@@ -1,6 +1,6 @@
 import re
 
-from pyjo_mdl.exceptions import InstanceValidationError, ModelValidationError
+from pyjo_mdl.exceptions import InstanceValidationError
 
 __author__ = 'xelhark'
 URL_REGEX = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
@@ -43,3 +43,21 @@ def cast_bool(value):
         elif value.lower() in ('no', 'false', 'f', 'n', '0'):
             return False
     raise ValueError('Boolean value expected. Got "{}" instead'.format(value))
+
+
+def cast_int(value):
+    if isinstance(value, str):
+        try:
+            return int(value)
+        except ValueError:
+            raise ValueError('Integer value expected. Got "{}" instead'.format(value))
+    return value
+
+
+def cast_float(value):
+    if isinstance(value, str):
+        try:
+            return float(value)
+        except ValueError:
+            raise ValueError('Float value expected. Got "{}" instead'.format(value))
+    return value
