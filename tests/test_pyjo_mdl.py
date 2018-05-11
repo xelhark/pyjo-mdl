@@ -91,6 +91,24 @@ def test_boolean():
     instance = Model(buleano='false')
     assert instance.buleano is False
 
+    instance = Model(buleano=False)
+    assert instance.buleano is False
+
+    instance = Model(buleano=0)
+    assert instance.buleano is False
+
+    instance = Model(buleano=1)
+    assert instance.buleano is True
+
+    instance = Model(buleano=5)
+    assert instance.buleano is True
+
+    instance = Model(buleano=-5)
+    assert instance.buleano is False
+
+    instance = Model(buleano=True)
+    assert instance.buleano is True
+
 
 def test_url():
     Model = pyjo_model_from_structure({

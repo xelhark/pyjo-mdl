@@ -42,6 +42,11 @@ def cast_bool(value):
             return True
         elif value.lower() in ('no', 'false', 'f', 'n', '0'):
             return False
+    elif isinstance(value, bool):
+        return value
+    elif isinstance(value, int):
+        return value > 0
+    
     raise ValueError('Boolean value expected. Got "{}" instead'.format(value))
 
 
