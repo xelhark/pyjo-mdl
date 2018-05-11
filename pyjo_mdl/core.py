@@ -4,7 +4,8 @@ from typing import Type
 from pyjo import Field, ModelMetaclass, ListField
 from six import iteritems
 
-from pyjo_mdl.helpers import number_validator, cast_bool, string_validator, url_validator, embedded_validator
+from pyjo_mdl.helpers import number_validator, cast_bool, string_validator, url_validator, embedded_validator, cast_int, \
+    cast_float
 from pyjo_mdl.model_classes import ValidatableModel
 from .exceptions import ModelValidationError
 
@@ -15,11 +16,13 @@ BASE_FIELD_PROPERTIES = {
         'type': int,
         'model_validator': None,
         'validator': number_validator,
+        'cast': cast_int
     },
     'float': {
         'type': float,
         'model_validator': None,
         'validator': number_validator,
+        'cast': cast_float
     },
     'boolean': {
         'type': bool,

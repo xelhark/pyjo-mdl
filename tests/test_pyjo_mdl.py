@@ -24,6 +24,19 @@ def test_simple_int():
     assert valid.numero == 4
 
 
+def test_can_validate_string_number():
+    Model = pyjo_model_from_structure({
+        'numero': {
+            'type': 'integer',
+            'min_value': 4,
+            'max_value': 10,
+        }
+    })
+
+    valid = Model(numero="5")
+    assert valid.numero == 5
+
+
 def test_simple_string():
     Model = pyjo_model_from_structure({
         'numero': {
