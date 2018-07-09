@@ -12,7 +12,7 @@ class ValidatableModel(Model):
     @classmethod
     def validate(cls, values):
         for key, field in iteritems(cls._fields):
-            field.cast_and_validate(values[key])
+            field.cast_and_validate(values.get(key, None))
 
 
 class FullErrorValidation(ValidatableModel):
