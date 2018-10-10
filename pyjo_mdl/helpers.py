@@ -46,7 +46,7 @@ def cast_bool(value):
         return value
     elif isinstance(value, int):
         return value > 0
-    
+
     raise ValueError('Boolean value expected. Got "{}" instead'.format(value))
 
 
@@ -60,7 +60,7 @@ def cast_int(value):
 
 
 def cast_float(value):
-    if isinstance(value, str):
+    if isinstance(value, str) or isinstance(value, int):
         try:
             return float(value)
         except ValueError:
